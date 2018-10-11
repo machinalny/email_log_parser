@@ -118,19 +118,10 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.1/howto/static-files/
-# define your base directory
-# It will be `absolute/path/to/demo3`
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+# https://docs.djangoproject.com/en/2.0/howto/static-files/
+
 STATIC_URL = '/static/'
-# define where your static files will be collected
-# It will be `absolute/path/to/demo3/static`
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-# keep it empty for the moment
-STATICFILES_DIRS = (
-)
 
 
 # Activate Django-Heroku.
