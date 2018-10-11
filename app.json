@@ -1,0 +1,22 @@
+{
+  "name": "Labirynt WebApp",
+  "description": "An app for parsing emails, writing them on MongoDB and accessing data.",
+  "image": "heroku/python",
+  "repository": "https://github.com/machinalny/email_log_parser",
+  "keywords": ["python", "django" ],
+  "addons": [ "pymongo" ],
+  "env": {
+    "SECRET_KEY": {
+      "description": "The secret key for the Django application.",
+      "generator": "0&%nqv7d2ygi1j%3&pppc*7ko8lrl_%ycar8r95y5g1r8$qx=6"
+    }
+  },
+  "environments": {
+    "test": {
+      "scripts": {
+        "test-setup": "python manage.py collectstatic --noinput",
+        "test": "python manage.py test"
+      }
+    }
+  }
+}

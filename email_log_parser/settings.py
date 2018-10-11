@@ -13,8 +13,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 import os
 import django_heroku
 
-# Activate Django-Heroku.
-django_heroku.settings(locals())
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -122,5 +121,17 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
-
+# define your base directory
+# It will be `absolute/path/to/demo3`
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 STATIC_URL = '/static/'
+# define where your static files will be collected
+# It will be `absolute/path/to/demo3/static`
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# keep it empty for the moment
+STATICFILES_DIRS = (
+)
+
+
+# Activate Django-Heroku.
+django_heroku.settings(locals())
