@@ -12,12 +12,10 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 import django_heroku
-
-
+from mongoengine import *
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -25,11 +23,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '0&%nqv7d2ygi1j%3&pppc*7ko8lrl_%ycar8r95y5g1r8$qx=6'
 
+# SECRET_KEY = 'xx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -41,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'labirynt_webapp.apps.LabiryntWebappConfig',
+    # 'django_mongoengine',
 ]
 
 MIDDLEWARE = [
@@ -74,20 +73,29 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'email_log_parser.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'djongo',
+        'ENFORCE_SCHEMA': True,
+        'NAME': 'grzybiany',
+        'HOST': 'mongodb+srv://machinalny-serv:21RgCDAe7sdMwQ7r@labirynt'
+                'grzybiany-ipfsw.gcp.mongodb.net/labiryntapp?retryWrites=true',
     }
 }
-
+# MONGODB_DATABASES = {
+#     "default": {
+#         'ENGINE': 'django_mongoengine.sessions',
+#         "name": 'grzybiany',
+#         "host": 'mongodb+srv://machinalny-serv:21RgCDAe7sdMwQ7r@labirynt'
+#                 'grzybiany-ipfsw.gcp.mongodb.net/test?retryWrites=true'
+#     },
+# }
 
 # Password validation
-# https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
+# https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validatorsc
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -103,7 +111,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
@@ -122,7 +129,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
