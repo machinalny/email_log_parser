@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'labirynt_webapp.apps.LabiryntWebappConfig',
-    # 'django_mongoengine',
+    'djongo'
 ]
 
 MIDDLEWARE = [

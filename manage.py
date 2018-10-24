@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 import os
 import sys
-
+from subprocess import call
+call(["pip install -r requirements.txt"])
 if __name__ == '__main__':
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'email_log_parser.settings')
     try:
